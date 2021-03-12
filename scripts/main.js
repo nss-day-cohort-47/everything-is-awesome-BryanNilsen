@@ -5,28 +5,28 @@ import { makeLegoList } from './legos/LegoList.js';
 const navElement = document.querySelector("nav");
 
 navElement.addEventListener("click", (event) => {
-	if (event.target.id === "showBlue") {
-		filterLegos("Blue")
-	} else if (event.target.id === "showAll") {
-		makeLegoList(useLegos())
-	}
+    if (event.target.id === "showRed") {
+        filterLegos("Red")
+    } else if (event.target.id === "showAll") {
+        makeLegoList(useLegos())
+    }
 })
 
 const filterLegos = (whatFilter) => {
-	const filterArray = useLegos().filter(singleLego => {
-		if (singleLego.LegoName.includes(whatFilter)) {
-			return singleLego;
-		}
-	})
-	makeLegoList(filterArray);
+    const filterArray = useLegos().filter(singleLego => {
+        if (singleLego.LegoName.includes(whatFilter)) {
+            return singleLego;
+        }
+    })
+    makeLegoList(filterArray);
 }
 
 
 const startEIA = () => {
-	loadLegos()
-	.then(legoArray => {
-		makeLegoList(legoArray)
-	})
+    loadLegos()
+        .then(legoArray => {
+            makeLegoList(legoArray)
+        })
 
 }
 
