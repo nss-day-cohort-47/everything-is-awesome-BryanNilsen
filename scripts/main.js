@@ -33,7 +33,7 @@ navElement.addEventListener("keyup", event => {
         const searchTerm = event.target.value
         if (searchTerm !== "") {
             const foundLegos = useLegos().filter(lego => lego.LegoId === searchTerm)
-            foundLegos ? makeLegoList(foundLegos) : alert("No match, try again")
+            foundLegos.length !== 0 ? makeLegoList(foundLegos) : alert("No match, try again")
         } else {
             makeLegoList(useLegos())
         }
