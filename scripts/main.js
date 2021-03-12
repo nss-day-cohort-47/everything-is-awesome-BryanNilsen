@@ -28,6 +28,18 @@ navElement.addEventListener("change", (event) => {
     }
 })
 
+navElement.addEventListener("keyup", event => {
+    if (event.target.id === "searchLegoId" && event.code === 'Enter') {
+        const searchTerm = event.target.value
+        if (searchTerm !== "") {
+            const foundLegos = useLegos().filter(lego => lego.LegoId === searchTerm)
+            foundLegos ? makeLegoList(foundLegos) : alert("No match, try again")
+        } else {
+            makeLegoList(useLegos())
+        }
+    }
+})
+
 const filterLegos = (property, value) => {
     const filterArray = useLegos().filter(singleLego => {
         if (singleLego[property].includes(value)) {
