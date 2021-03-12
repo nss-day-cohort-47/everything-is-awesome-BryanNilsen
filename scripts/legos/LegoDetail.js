@@ -4,11 +4,14 @@ export const LegoDetail = (brick) => {
 
     let block = `<section class="block-wrapper" style="background-color:#${brick.ColorHex}">
         <h3>Name: ${capitalizeString(brick.LegoName)}</h3>
+        <div class="block-material">Material: ${brick.Material}</div>
         <div class="block-years">Manufactured ${brick.YearFrom} - ${brick.YearTo}</div>
         ${brick.Notes !== ""
             ? `<div class="block-notes">Notes: ${brick.Notes}</div>`
             : ""
-        }`
+        }
+        </section>
+        `
     const link = brick.ColorstreamLinkImage;
     if (link) {
         //true? wrap the block in an a tag
